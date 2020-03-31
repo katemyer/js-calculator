@@ -38,8 +38,6 @@ const calculateUserInput = function(error, promptInput) {
         operation: promptInput.operation,
     }
 
-    console.log(exampleInput)
-
     let output = null;
 
     // passed main checks
