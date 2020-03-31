@@ -9,8 +9,7 @@ function addNumbers(aNum1, aNum2) {
 
 const calculateUserInput = function(error, promptInput) {
     console.log('This is the value of the promptInput variable that got passed in by prompt, after our prompt package collect user input', promptInput);
-    // console.log(promptInput)
-    // console.log(promptInput.num1)
+
     const validOperators = ['+', '-', '*', '/', 'add', 'subtract', 'multiply', 'divide'];
     //check if num1 or num2 or operation is null
     if (promptInput.num1 === null || promptInput.num2 === null || promptInput.operation === null) {
@@ -41,9 +40,7 @@ const calculateUserInput = function(error, promptInput) {
 
     console.log(exampleInput)
 
-
     let output = null;
-
 
     // passed main checks
     // going to try to do an operation
