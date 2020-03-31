@@ -11,7 +11,27 @@ const calculateUserInput = function(error, promptInput) {
     console.log('This is the value of the promptInput variable that got passed in by prompt, after our prompt package collect user input', promptInput);
     // console.log(promptInput)
     // console.log(promptInput.num1)
+    const validOperators = ['+', '-', '*', '/', 'add', 'subtract', 'multiply', 'divide'];
+    //check if num1 or num2 or operation is null
+    if (promptInput.num1 === null || promptInput.num2 === null || promptInput.operation === null) {
+        console.log('Invalid input, input is null.');
+        return;
+    }
+    //check if promptInput values are empty
+    if (promptInput.num1 === '' || promptInput.num2 === '' || promptInput.operation === '') {
+        console.log('Invalid input, input is empty.');
+        return;
+    }
+    // need to check if it's string bc of type coercion makes it a number
+    if (isNaN(promptInput.num1) || isNaN(promptInput.num2)) {
+        console.log('Invalid input, this is not a number.');
+        return;
+    }
 
+    if (!validOperators.includes(promptInput.operation)) {
+        console.log('Invalid operation');
+        return;
+    }
     //do the calculation
     const exampleInput = {
         num1: Number(promptInput.num1), // converts string to number
@@ -19,24 +39,11 @@ const calculateUserInput = function(error, promptInput) {
         operation: promptInput.operation,
     }
 
-    let validOperators = ['+', '-', '*', '/', 'add', 'subtract', 'multiply', 'divide'];
+    console.log(exampleInput)
+
+
     let output = null;
 
-    //check if num1 or num2 or operation is null
-    if (exampleInput.num1 === null || exampleInput.num2 === null || exampleInput.operation === null) {
-        console.log('Invalid input, input is null.');
-        return;
-    }
-    // need to check if it's string bc of type coercion makes it a number
-    if (isNaN(exampleInput.num1) || isNaN(exampleInput.num2)) {
-        console.log('Invalid input, this is not a number.');
-        return;
-    }
-
-    if (!validOperators.includes(exampleInput.operation)) {
-        console.log('Invalid operation');
-        return;
-    }
 
     // passed main checks
     // going to try to do an operation
